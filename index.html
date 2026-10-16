@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Love ❤️</title>
+<style>
+body {
+  margin: 0; min-height: 100vh;
+  display: flex; align-items: center;
+  justify-content: center; text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ff758c,#ffb6c8,#ffc3a0);
+  overflow: hidden; color: #fff;
+}
+.box { padding: 20px; }
+.gift {
+  font-size: 125px; cursor: pointer;
+  animation: bounce 1.2s infinite;
+}
+h1 { font-size: 32px; }
+p { font-size: 18px; }
+.hidden { display: none; }
+.heart {
+  position: fixed; bottom: -40px;
+  font-size: 30px; pointer-events: none;
+  animation: rise 3s linear forwards;
+}
+@keyframes bounce {
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+@keyframes rise {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<div class="box">
+  <div id="gift" class="gift" onclick="openGift()">🎁</div>
+  <h2 id="hint">Tap your special gift, Darling 💝</h2>
+  <div id="message" class="hidden">
+    <h1>I Love You Darling ❤️🥹💋</h1>
+    <p>You are my happiness, my today and my forever. 💖</p>
+    <p>Allah par tawakkul rakhe 🤲❤️</p>
+    <div style="font-size:40px">💗 💞 💘 💓 💝</div>
+  </div>
+</div>
+<script>
+function openGift() {
+  document.getElementById('gift').textContent = '💝';
+  document.getElementById('hint').classList.add('hidden');
+  document.getElementById('message').classList.remove('hidden');
+  for (let i = 0; i < 45; i++) {
+    setTimeout(() => {
+      let h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = ['❤️','💖','💕','💗','💘'][Math.floor(Math.random()*5)];
+      h.style.left = Math.random()*100 + 'vw';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 3200);
+    }, i * 90);
+  }
+}
+</script>
+</body>
+</html>
